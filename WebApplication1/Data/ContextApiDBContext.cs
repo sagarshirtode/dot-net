@@ -8,6 +8,10 @@ namespace WebApplication1.Data
         public ContextApiDBContext(DbContextOptions options) : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.UseSerialColumns();
+        }
         public DbSet<Contact> Contacts { get; set; }
     }
 }
